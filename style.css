@@ -4,101 +4,294 @@
 
 body {
     margin: 0;
-    font-family: Arial;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto 1fr auto;
-    grid-template-areas:
-        "header"
-        "nav"
-        "sidebar"
-        "main"
-        "footer";
+    font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
     min-height: 100vh;
-}
-
-.header {
-    grid-area: header;
-    text-align: center;
-    padding: 32px;
+    
+    /* Grid layout: Mobile first - sin grid inicialmente */
+    display: flex;
+    flex-direction: column;
 }
 
 .pinterest-header {
-    grid-area: nav;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px;
+    gap: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 24px;
+}
+
+.logo-container:hover {
+    background-color: #f0f0f0;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+}
+
+.logo-text {
+    color: #e60023;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -1px;
+    margin-left: 4px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.nav-link {
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    border-radius: 24px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.nav-link.active {
+    background-color: #111;
+    color: white;
+}
+
+.nav-link:hover:not(.active) {
+    background-color: #f0f0f0;
+}
+
+.header-center {
+    flex: 1;
+    padding: 0 8px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #e9e9e9;
+    border-radius: 24px;
+    padding: 0 16px;
+    height: 48px;
+    width: 100%;
+}
+
+.search-bar:hover, .search-bar:focus-within {
+    background-color: #e1e1e1;
+}
+
+.search-icon {
+    fill: #767676;
+    margin-right: 8px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: #111;
+    height: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.right-nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.btn-login {
+    background-color: #e60023;
+    color: white;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-login:hover {
+    background-color: #ad081b;
+}
+
+.btn-signup {
+    background-color: #e9e9e9;
+    color: black;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 12px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.btn-signup:hover {
+    background-color: #d0d0d0;
+}
+
+
+
+.page-layout {
+    /* Mobile first: stack vertical sin grid */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
 }
 
 .sidebar {
-    grid-area: sidebar;
-    background: #f7f7f7;
-    padding: 20px;
+    /* Mobile first: sidebar oculto */
+    display: none;
+    background: #fff;
+    padding: 16px;
+    overflow-y: auto;
 }
 
 .sidebar h3 {
-    margin-top: 0;
-    color: #333;
+    margin: 0 0 16px 0;
+    color: #111;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.sidebar ul {
+.category-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-.sidebar li {
-    margin-bottom: 10px;
+.category-list li {
+    margin-bottom: 8px;
 }
 
-.sidebar a {
+.category-link {
+    display: block;
+    padding: 10px 12px;
     text-decoration: none;
     color: #111;
     font-weight: 500;
-    transition: color 0.2s;
+    border-radius: 8px;
+    transition: all 0.2s;
 }
 
-.sidebar a:hover {
-    color: #e60023;
+.category-link:hover {
+    background: #e9e9e9;
+}
+
+.category-link.active {
+    background: #e60023;
+    color: white;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-bar label {
+    font-weight: 600;
+    color: #111;
+    font-size: 14px;
+}
+
+#categoryFilter {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #cdcdcd;
+    font-size: 14px;
+    cursor: pointer;
+    background: white;
+    min-width: 180px;
+}
+
+#categoryFilter:hover {
+    border-color: #111;
 }
 
 .container {
-    grid-area: main;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-
+    /* Mobile first: 1 columna */
+    column-count: 1;
+    column-gap: 12px;
+    padding: 12px 8px;
 }
 
-/* Create four equal columns that sits next to each other */
-.column {
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
-}
-
-.column img {
-    margin-top: 8px;
-    vertical-align: middle;
-    border-radius: 10%;
-}
-
-.image-container:hover {
-    box-shadow: rgb(94, 23, 104) 0px 1px 10px -1px;
-    transition: cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: 0.15s;
-    transition-timing-function: ease-in;
-
-    transform: translateY(5px);
-    opacity: 1;
-}
-
+/* Estilos base para image-container */
 .image-container {
     position: relative;
     overflow: hidden;
-    border-radius: 10%;
-    background: rgba(255, 255, 255, 0.76);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    /* Masonry layout fix */
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 12px;
+    break-inside: avoid;
 }
 
 .image-container img {
     display: block;
     width: 100%;
+    height: auto;
+    border-radius: 16px;
+}
+
+.image-container:hover {
+    box-shadow: 0 8px 16px rgba(94, 23, 104, 0.25);
+    transform: translateY(-4px);
 }
 
 .overlay {
@@ -107,13 +300,13 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
     color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
@@ -125,23 +318,51 @@ body {
 
 .overlay-icons {
     display: flex;
-    gap: 15px;
-    justify-content: center;
+    gap: 12px;
+    justify-content: flex-end;
     align-items: center;
-    margin-top: 20px;
+    width: 100%;
+    margin-top: 8px;
+    order: 2;
+}
+
+.overlay .text {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    order: 1;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 .icon {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     filter: brightness(0) invert(1);
     cursor: pointer;
     transition: transform 0.2s;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none; /* Reset for button */
+    outline: none; /* Reset for button */
+}
+
+.icon img, .like-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .icon.filled {
@@ -150,11 +371,14 @@ body {
 
 .image-container.liked {
     order: -1;
+    border: 2px solid #e60023;
+    box-shadow: 0 4px 12px rgba(230, 0, 35, 0.2);
 }
 
 .image-container.clicked {
-    background: #fff5f7 !important;
+    background: #fff5f7;
     border: 2px solid #ad8c91;
+    box-shadow: 0 4px 12px rgba(173, 140, 145, 0.3);
 }
 
 .text {
@@ -163,205 +387,157 @@ body {
 }
 
 .footer {
-    grid-area: footer;
     background: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 16px;
+    margin-top: auto;
+    /* Mobile first: altura flexible */
+    min-height: 50px;
 }
 
 .footer p {
     margin: 0;
+    font-size: 14px;
 }
 
-
-.pinterest-header {
-    display: flex;
-
-    /* Para que todos los elementos estén alineados */
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 5px 10px;
-
-    background: white;
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    position: sticky;
-
-    /* Esto es para que se quede arriba del todo */
-    top: 0;
-
-    /* Esto es para que se muestre por encima de cualquier elemento */
-    z-index: 100;
+.image-container.hidden {
+    display: none !important;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    height: 32px;
-    width: auto;
-}
-
-/* Esto es para el container que tiene los nav-links */
-.nav-links {
-    display: flex;
-    gap: 10px;
-}
-
-/* Esto es para cada nav link por separado */
-
-.nav-link {
-    padding: 12px 16px;
-    text-decoration: none;
-
-    color: #111;
-    font-weight: 600;
-    border-radius: 24px;
-    transition: background 0.2s;
-}
-
-/* Si pasa el ratón por encima se activa el hover */
-.nav-link:hover,
-.nav-link.active {
-    background: #e9e9e9;
-}
-
-.header-center {
-    /* flex: 1; */
-    max-width: 600px;
-    margin: 0 20px;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    background: #efefef;
-    border-radius: 24px;
-    padding: 12px 16px;
-    gap: 10px;
-}
-
-/* Se pone el fondo del icono de buscar del mismo color que el search bar*/
-.search-icon {
-    background: #efefef;
-}
-
-/* Cambia el estilo del cajón de búsqueda */
-.search-bar input {
-    /* Esto es para quitarle los bordes a la caja  */
-    border: none;
-
-    /* Así se hace transparente*/
-    background: transparent;
-    outline: none;
-    width: 100%;
-    font-size: 16px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-
-/* Con esto se estilan los iconos de notificaciones, mensajes y usuario */
-.header-icon {
-    font-size: 24px;
-    text-decoration: none;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background 0.2s;
-}
-
-.header-icon:hover {
-    background: #e9e9e9;
-}
-
-.btn-login,
-.btn-register {
-    /* El padding es para que los botones ocupen más espacio para el alto y para el ancho respectivamente */
-    padding: 12px 16px;
-
-    /* Se le quita el borde */
-    border: none;
-
-    /* Para que los botones se vean más modernos se redondean las esquinas */
-    border-radius: 24px;
-
-    /* Para que los botones se vean en negrita */
-    font-weight: 600;
-
-    /* Para que cuando el usuario pase el ratón por encima se ponga como si fuera a pinchar un enlace */
-    cursor: pointer;
-
-    font-size: 16px;
-}
-
-/* Ahora se estila cada botón de manera individual */
-.btn-login {
-    background: #e60023;
-    color: white;
-}
-
-.btn-register {
-    background: #efefef;
-    color: #111;
-}
-
-
-/* Cuando se pase el ratón por encima del botón de iniciar sesión se oscurece */
-.btn-login:hover {
-    background: #ad081b;
-}
-
-
-.btn-register:hover {
-    background: #e2e2e2;
-
-}
-
-
-/* Mobile first: Base styles para móviles (<600px) */
-.column {
-    flex: 100%;
-    max-width: 100%;
-    padding: 0 4px;
-}
+/* ============================================
+   MEDIA QUERIES - MOBILE FIRST
+   ============================================ */
 
 /* Tablets: entre 600px y 800px */
-@media (width >=600px) {
-    body {
-        grid-template-columns: 200px 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas:
-            "header header"
-            "nav nav"
-            "sidebar main"
-            "footer footer";
+@media (width >= 600px) {
+    /* Header más grande */
+    .pinterest-header {
+        height: 70px;
+        padding: 12px 24px;
     }
-
-    .column {
-        flex: 50%;
-        max-width: 50%;
+    
+    .logo {
+        height: 28px;
+        max-width: 160px;
+    }
+    
+    .nav-links {
+        display: flex; /* Mostrar nav links */
+    }
+    
+    .btn-login {
+        display: inline-block; /* Mostrar botón login */
+    }
+    
+    .header-center {
+        max-width: 500px;
+    }
+    
+    /* Mostrar sidebar colapsado o parcial */
+    .sidebar {
+        display: block;
+        width: 180px;
+        border-right: 1px solid #e0e0e0;
+    }
+    
+    .page-layout {
+        flex-direction: row;
+    }
+    
+    /* 2 columnas para tarjetas */
+    .container {
+        padding: 16px;
+        column-count: 2;
+        column-gap: 16px;
+    }
+    
+    .image-container {
+        margin-bottom: 16px;
+        max-width: 100%;
+    }
+    
+    .footer {
+        height: 60px;
+        padding: 20px;
     }
 }
 
 /* Desktop: más de 800px */
-@media (width >=800px) {
+@media (width >= 800px) {
+    /* Flex layout para desktop */
     body {
-        grid-template-columns: 250px 1fr;
+        /* Mantenemos flex column del mobile */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
     }
+    
+    .pinterest-header {
+        height: 80px;
+        padding: 16px 40px;
+    }
+    
+    .logo {
+        height: 32px;
+        max-width: 200px;
+    }
+    
+    .header-center {
+        max-width: 600px;
+        margin: 0 20px;
+    }
+    
 
-    .column {
-        flex: 25%;
-        max-width: 25%;
+    
+    .btn-login,
+    .btn-signup {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .page-layout {
+        /* Cambiamos a fila para sidebar + main */
+        flex-direction: row;
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+    }
+    
+    .sidebar {
+        display: block;
+        width: 240px;
+        padding: 24px 16px;
+        flex-shrink: 0;
+        border-right: 1px solid #e0e0e0;
+        overflow-y: auto;
+    }
+    
+    .main-content {
+        flex: 1;
+        overflow-y: auto;
+    }
+    
+    .footer {
+        height: 60px;
+    }
+    
+    /* 3-4 columnas para tarjetas en desktop */
+    .container {
+        padding: 20px;
+        column-count: 3;
+        column-gap: 20px;
+    }
+    
+    .image-container {
+        margin-bottom: 20px;
+        max-width: 100%;
+    }
+}
+
+/* Desktop grande: más de 1200px - 4 columnas */
+@media (width >= 1200px) {
+    .container {
+        column-count: 4;
     }
 }

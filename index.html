@@ -2,29 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
-    <meta name="description" content="Author: A. Pastor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Descubre los pueblos y ciudades más bonitos de Murcia. Explora la belleza de la región a través de imágenes impresionantes de sus paisajes, monumentos y arquitectura.">
+    <meta name="keywords"
+        content="murcia, pueblos murcia, ciudades murcia, turismo murcia, caravaca, lorca, cartagena, pinterest murcia">
+    <meta name="author" content="A. Pastor">
+    <meta name="robots" content="index,follow">
     <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34=">
-    <meta name="robots" content="noindex,nofollow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Pinterest Pueblos y Ciudades de Murcia">
+    <meta property="og:description"
+        content="Explora la belleza de los pueblos y ciudades de Murcia a través de imágenes impresionantes">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./img/murcia-1.avif">
+
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
-    <title>Pinterest pueblos Murcia</title>
+    <title>Pinterest Pueblos y Ciudades de Murcia</title>
 </head>
 
 <body>
     <!-- Header -->
-    <!-- <header class="header">
-        <h1>Pueblos y ciudades de Murcia</h1>
-        <p>Explora la belleza de la región a través de imágenes impresionantes.</p>
-    </header> -->
-
-    <nav class="pinterest-header">
+    <header class="pinterest-header">
         <div class="header-left">
-            <img src="./img/Pinterest-logo.jpg" style="width: 200px; height:auto;" alt="Pinterest Logo" class="logo">
+            <a href="#" class="logo-container">
+                <!-- <img src="./img/Pinterest-logo.jpg" alt="Pinterest Logo" class="logo"> -->
+                <span class="logo-text">Pinterest</span>
+            </a>
             <nav class="nav-links">
-                <a href="#" class="nav-link">Inicio</a>
-                <a href="#" class="nav-link">Explorar</a>
+                <a href="#" class="nav-link active">Explorar</a>
             </nav>
         </div>
 
@@ -35,308 +44,198 @@
                         d="M10 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6m13.12 2.88l-4.26-4.26A9.842 9.842 0 0 0 20 10c0-5.52-4.48-10-10-10S0 4.48 0 10s4.48 10 10 10c1.67 0 3.24-.41 4.64-1.14l4.26 4.26a3 3 0 0 0 4.22 0 3 3 0 0 0 0-4.22">
                     </path>
                 </svg>
-                <input type="text" placeholder="Buscar">
+                <input type="text" placeholder="Encuentra ideas sobre cenas fáciles, moda, etc.">
             </div>
         </div>
 
         <div class="header-right">
-            <a href="#" class="header-icon">🔔</a>
-            <a href="#" class="header-icon">💬</a>
-            <a href="#" class="header-icon">👤</a>
-            <button class="btn-login">Iniciar sesión</button>
-            <button class="btn-register">Registrarse</button>
+            <nav class="right-nav-links">
+                <a href="#" class="nav-link">Info</a>
+                <!-- <a href="#" class="nav-link">Empresas</a>
+                <a href="#" class="nav-link">Crear</a> -->
+                <a href="#" class="nav-link">Noticias</a>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn-login">Iniciar sesión</button>
+                <button class="btn-signup">Registrarse</button>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <aside class="sidebar">
-        <h3>Categorías</h3>
-        <ul>
-            <li><a href="#">Playas</a></li>
-            <li><a href="#">Montañas</a></li>
-            <li><a href="#">Pueblos</a></li>
-            <li><a href="#">Ciudades</a></li>
-            <li><a href="#">Monumentos</a></li>
-        </ul>
-    </aside>
+    <div class="page-layout">
+        <!-- Sidebar lateral -->
+        <aside class="sidebar">
+            <h3>Categorías</h3>
+            <ul class="category-list">
+                <li><a href="#" class="category-link active" data-filter="all">Todas las categorías</a></li>
+                <li><a href="#" class="category-link" data-filter="favorites">Mis favoritos</a></li>
+            </ul>
+        </aside>
 
-    <!-- Photo Grid -->
-    <main class="container">
-        <div class="column">
-            <div class="image-container">
-                <img src="./img/pueblo-murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <div class="overlay-icons">
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Barra de filtros horizontal -->
+            <div class="filter-bar">
+                <label for="categoryFilter">Filtrar por:</label>
+                <select id="categoryFilter">
+                    <option value="" selected>Todas</option>
+                    <option value="playas">Playas</option>
+                    <option value="montanas">Montañas</option>
+                    <option value="pueblos">Pueblos</option>
+                    <option value="ciudades">Ciudades</option>
+                    <option value="monumentos">Monumentos</option>
+                </select>
+            </div>
+
+            <!-- Grid de imágenes -->
+            <div class="container">
+                <div class="image-container" data-favorite="false" data-category="ciudades">
+                    <img src="./img/pueblo-murcia.jpg" alt="Pueblo de Murcia">
+                    <div class="overlay">
                         <div class="overlay-icons">
-
-                            <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;"
-                                alt="Like">
-
-                            <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                            <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png"
-                                    alt="Share"></a>
-
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
                         </div>
+                        <p class="text">Hermosa vista de un pueblo de Murcia</p>
                     </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/caravaca-pueblo-interior-murcia-920x796.jpeg" style="width:100%">
-                <div class="overlay">
-                    <div class="overlay-icons">
 
-                        <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;"
-                            alt="Like">
-
-                        <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                        <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/caravaca-pueblo-interior-murcia-920x796.jpeg" alt="Caravaca de la Cruz">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Interior de Caravaca de la Cruz</p>
                     </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/Cehegin-_V-46.webp" alt="Cehegín">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Pueblo de Cehegín en Murcia</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="ciudades">
+                    <img src="./img/murcia-1.avif" alt="Ciudad de Murcia">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Vista de la ciudad de Murcia</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/Caravaca-de-la-Cruz-Murcia.jpg" alt="Caravaca de la Cruz">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Caravaca de la Cruz, pueblo histórico</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/castillo-jumilla.jpg" alt="Castillo de Jumilla">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Impresionante castillo de Jumilla</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/caravaca-de-la-cruz_5605d6fc_528399301_250425131747_1280x960.webp"
+                        alt="Caravaca panorámica">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Vista panorámica de Caravaca</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="pueblos">
+                    <img src="./img/moratalla_1200x1800.webp" alt="Moratalla">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">Pueblo de Moratalla</p>
+                    </div>
+                </div>
+
+                <div class="image-container" data-favorite="false" data-category="montañas">
+                    <img src="./img/salto-usero-murcia.jpg" alt="Salto del Usero">
+                    <div class="overlay">
+                        <div class="overlay-icons">
+                            <button class="icon like-btn-container" aria-label="Me gusta">
+                                <img src="./img/corazon-blanco.webp" class="like-icon filled" style="display: none;"
+                                    alt="">
+                                <img src="./img/like-icon.png" class="like-icon" alt="">
+                            </button>
+                            <a href="https://ejemplo.com" class="icon link-btn" target="_blank" rel="noopener"
+                                aria-label="Compartir"><img src="./img/share.png" alt=""></a>
+                        </div>
+                        <p class="text">El famoso Salto del Usero en Murcia</p>
+                    </div>
                 </div>
             </div>
-            <div class="image-container">
-                <img src="./img/Cehegin-_V-46.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/murcia-1.avif" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/murcia-1.avif" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/Caravaca-de-la-Cruz-Murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="image-container">
-                <img src="./img/castillo-jumilla.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/caravaca-de-la-cruz_5605d6fc_528399301_250425131747_1280x960.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/moratalla_1200x1800.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/salto-usero-murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <!-- <div class="image-container">
-                <img src="./img/rocks.jpg" style="width:100%">
-                <div class="overlay">
-                                        <div class="overlay-icons">
-
-                                            <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                                            <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                                            <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-
-                                        </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/underwater.jpg" style="width:100%">
-                <div class="overlay">
-                                        <div class="overlay-icons">
-
-                                            <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                                            <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                                            <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-
-                                        </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div> -->
-        </div>
-        <div class="column">
-            <div class="image-container">
-                <img src="./img/pueblo-murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/caravaca-pueblo-interior-murcia-920x796.jpeg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/Cehegin-_V-46.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/murcia-1.avif" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/Caravaca-de-la-Cruz-Murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="image-container">
-                <img src="./img/castillo-jumilla.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/caravaca-de-la-cruz_5605d6fc_528399301_250425131747_1280x960.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/moratalla_1200x1800.webp" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/salto-usero-murcia.jpg" style="width:100%">
-                <div class="overlay">
-                    <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                    <img src="./img/like-icon.png" class="icon like-btn" alt="Like"> <a href="https://ejemplo.com"
-                        class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <!-- <div class="image-container">
-                <img src="./img/rocks.jpg" style="width:100%">
-                <div class="overlay">
-                                        <div class="overlay-icons">
-
-                                            <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                                            <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                                            <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-
-                                        </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="./img/underwater.jpg" style="width:100%">
-                <div class="overlay">
-                                        <div class="overlay-icons">
-
-                                            <img src="./img/corazon-blanco.webp" class="icon like-btn filled" style="display: none;" alt="Like">
-
-                                            <img src="./img/like-icon.png" class="icon like-btn" alt="Like">
-
-                                            <a href="https://ejemplo.com" class="icon link-btn"><img src="./img/share.png" alt="Share"></a>
-
-                                        </div>
-                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div> -->
-        </div>
-    </main>
+        </main>
+    </div>
 
     <footer class="footer">
         <p>&copy; 2025 Pinterest Pueblos de Murcia. Todos los derechos reservados.</p>
