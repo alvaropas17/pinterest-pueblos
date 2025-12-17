@@ -50,7 +50,7 @@ img:hover {
 
 .image-container img {
     display: block;
-    width: 1000%;
+    width: 100%;
 }
 
 .overlay {
@@ -81,12 +81,21 @@ img:hover {
 }
 
 .icon {
-    width: 10px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 10px;
     display: block;
     object-fit: contain;
     filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+.icon.filled {
+    filter: none;
+}
+
+.image-container.liked {
+    order: -1;
 }
 
 .text {
