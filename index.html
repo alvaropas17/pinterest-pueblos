@@ -14,12 +14,12 @@
 
 <body>
     <!-- Header -->
-    <div class="header">
+    <header class="header">
         <h1>Pueblos y ciudades de Murcia</h1>
         <p>Explora la belleza de la región a través de imágenes impresionantes.</p>
-    </div>
+    </header>
 
-    <header class="pinterest-header">
+    <nav class="pinterest-header">
         <div class="header-left">
             <img src="./img/Pinterest-logo.jpg" style="width: 200px; height:auto;" alt="Pinterest Logo" class="logo">
             <nav class="nav-links">
@@ -46,10 +46,21 @@
             <button class="btn-login">Iniciar sesión</button>
             <button class="btn-register">Registrarse</button>
         </div>
-    </header>
+    </nav>
+
+    <aside class="sidebar">
+        <h3>Categorías</h3>
+        <ul>
+            <li><a href="#">Playas</a></li>
+            <li><a href="#">Montañas</a></li>
+            <li><a href="#">Pueblos</a></li>
+            <li><a href="#">Ciudades</a></li>
+            <li><a href="#">Monumentos</a></li>
+        </ul>
+    </aside>
 
     <!-- Photo Grid -->
-    <div class="container">
+    <main class="container">
         <div class="column">
             <div class="image-container">
                 <img src="./img/pueblo-murcia.jpg" style="width:100%">
@@ -266,7 +277,11 @@
                 </div>
             </div> -->
         </div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Pinterest Pueblos de Murcia. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 

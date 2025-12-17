@@ -5,14 +5,61 @@
 body {
     margin: 0;
     font-family: Arial;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "sidebar"
+        "main"
+        "footer";
+    min-height: 100vh;
 }
 
 .header {
+    grid-area: header;
     text-align: center;
     padding: 32px;
 }
 
+.pinterest-header {
+    grid-area: nav;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #f7f7f7;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: #e60023;
+}
+
 .container {
+    grid-area: main;
     display: flex;
     flex-wrap: wrap;
     padding: 0 4px;
@@ -102,6 +149,18 @@ body {
 .text {
     margin: 0;
     font-size: 14px;
+}
+
+.footer {
+    grid-area: footer;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer p {
+    margin: 0;
 }
 
 
@@ -259,18 +318,39 @@ body {
 }
 
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
+/* Mobile first: Base styles para móviles (<600px) */
+.column {
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 4px;
+}
+
+/* Tablets: entre 600px y 800px */
+@media (width >= 600px) {
+    body {
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "sidebar main"
+            "footer footer";
+    }
+
     .column {
         flex: 50%;
         max-width: 50%;
     }
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+/* Desktop: más de 800px */
+@media (width >= 800px) {
+    body {
+        grid-template-columns: 250px 1fr;
+    }
+
     .column {
-        flex: 100%;
-        max-width: 100%;
+        flex: 25%;
+        max-width: 25%;
     }
 }
