@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const likeButtons = document.querySelectorAll('.like-btn');
+    const tarjetas = document.querySelectorAll(".image-container");
 
     likeButtons.forEach(button => {
         button.addEventListener('click', function (e) {
@@ -21,6 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (imageContainer.classList.contains('liked')) {
                 column.insertBefore(imageContainer, column.firstChild);
             }
+        });
+    });
+
+    tarjetas.forEach(tarjeta => {
+        tarjeta.addEventListener("click", function (e) {
+            this.style.backgroundColor = 'green';
         });
     });
 });
