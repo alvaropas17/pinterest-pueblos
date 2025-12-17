@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     tarjetas.forEach(tarjeta => {
         tarjeta.addEventListener("click", function (e) {
-            this.style.backgroundColor = 'green';
+            // Cambio más sutil y permanente
+            if (!this.classList.contains('clicked')) {
+                this.classList.add('clicked');
+                this.style.borderColor = '#885f65a1';
+                this.style.backgroundColor = '#fff5f7';
+            }
         });
     });
 });
